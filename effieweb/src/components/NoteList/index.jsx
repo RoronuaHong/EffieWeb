@@ -29,6 +29,19 @@ const NoteList = () => {
             12 July 2022
           </div>
         </div>
+        <div className="note-card">
+          <div className="note-card-head">
+            <div className="note-card-title">
+              Note One
+            </div>
+            <div className="note-card-desc">
+              Some Descrpition
+            </div>
+          </div>
+          <div className="note-card-date">
+            12 July 2022
+          </div>
+        </div>
       </div>  
     </div>
   )

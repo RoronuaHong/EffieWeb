@@ -41,6 +41,41 @@
       flex-direction: column;
       border: 1px solid #e6e6e6;
       text-decoration: none;
+      .note-card-head {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        flex: 1;
+        font-size: 14px;
+      }
+      .note-card-title {
+        width: 100%;
+        white-space: nowrap;
+        font-weight: 600;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        color: #333;
+      }
+      .note-card-desc {
+        width: 100%;
+        margin-top: 5px;  
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        color: #737373;
+      }
+      .note-card-date {
+        font-size: 14px;
+        color: #4d4d4d;
+      }
+      &:hover {
+        cursor: pointer;
+        background: #fff;
+      }
+      &.active {
+        background: #fff;
+      }
     }
   }
 }
