@@ -3,8 +3,16 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleDown, faStickyNote, faSearch, faTrash, faPlus, faStar, faInfo } from '@fortawesome/free-solid-svg-icons'
 
 import './index.scss'
+import { NavLink } from 'react-router-dom'
+import { BASE_URL, CREATE_NOTES } from '@/utils/apiEndpoints'
 
 const SideNavbar = () => {
+  const handleCreateNote = async() => {
+    const res = await postRequest()
+
+
+  }
+
   return (
     <div className="sidenavbar">
       <div className="sidenavbar-top">
@@ -24,7 +32,7 @@ const SideNavbar = () => {
           </div>
         </div>
         <div className="sidenavbar-top-create-notes">
-          <div className="create-note-btn">
+          <div className="create-note-btn" onClick={handleCreateNote}>
             <FontAwesomeIcon className="icon" icon={faPlus} />
             <div className="title">
               New Note
@@ -34,16 +42,28 @@ const SideNavbar = () => {
         <div className="sidenavbar-top-menu-item">
           <ul>
             <li>
-              <FontAwesomeIcon className="icon" icon={faStar} />
-              Sigma.
+              <NavLink to="/Sigma-1">
+                <FontAwesomeIcon className="icon" icon={faStar} />
+                Sigma.
+              </NavLink>
             </li>
             <li>
-              <FontAwesomeIcon className="icon" icon={faStickyNote} />
-              All Notes
+              <NavLink to="/Sigma-2">
+                <FontAwesomeIcon className="icon" icon={faStar} />
+                Sigma.
+              </NavLink>
             </li>
             <li>
-              <FontAwesomeIcon className="icon" icon={faTrash} />
-              Trash
+              <NavLink to="all-notes">
+                <FontAwesomeIcon className="icon" icon={faStickyNote} />
+                All Notes
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="trash">
+                <FontAwesomeIcon className="icon" icon={faTrash} />
+                Trash
+              </NavLink>
             </li>
           </ul>
         </div>

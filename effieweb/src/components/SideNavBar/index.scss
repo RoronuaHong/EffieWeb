@@ -75,21 +75,23 @@
       margin-top: 10px;
       ul {
         li {
-          display: flex;
-          align-items: center;
-          padding: 10px 18px;
-          color: #ccc;
-          text-decoration: none;
-          .icon {
-            font-size: 14px;
-            margin-right: 8px;
-          }
-          &:hover {
-            background: #404040;
-            cursor: pointer;
-          }
-          &.active {
-            background: #404040;
+          a {
+            display: flex;
+            align-items: center;
+            padding: 10px 18px;
+            color: #ccc;
+            text-decoration: none;
+            .icon {
+              font-size: 14px;
+              margin-right: 8px;
+            }
+            &:hover {
+              background: #404040;
+              cursor: pointer;
+            }
+            &.active {
+              background: #404040;
+            }
           }
         }
       }

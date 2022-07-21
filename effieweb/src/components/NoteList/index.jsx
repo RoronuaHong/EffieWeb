@@ -2,12 +2,16 @@ import React from 'react'
 
 import "./index.scss"
 
-const NoteList = () => {
+const NoteList = props => {
+  const { 
+    title 
+  } = props
+
   return (
     <div className="note-list">
       <div className="note-list-header">
         <div className="note-list-header-title">
-          <h1>All Notes</h1>
+          <h1>{ title }</h1>
         </div>
         <div className="note-list-header-sub-head">
           <div className="note-count">
