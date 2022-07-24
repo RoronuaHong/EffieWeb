@@ -1,6 +1,7 @@
 const { createNote, fetchAllNotes, updateNote, deleteNote } = require('./model')
 const { getTime } = require('./helper')
 
+// FIXME: 读出不对
 exports.createNewNote = async(req, res) => {
   // title, desc, archive, createAt, updatedAt
   try {
@@ -9,11 +10,12 @@ exports.createNewNote = async(req, res) => {
     let newNote = {
       title: 'Untitled',
       desc: '',
+      archive: 0,
       createdAt: currentTime,
       updatedAt: currentTime
     }
 
-    let id = await this.createNote(newNote)
+    let id = await createNote(newNote)
 
     newNote['_id'] = id
 

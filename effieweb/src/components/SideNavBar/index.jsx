@@ -1,16 +1,36 @@
-import React from 'react'
+import React, { useState, useContext } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleDown, faStickyNote, faSearch, faTrash, faPlus, faStar, faInfo } from '@fortawesome/free-solid-svg-icons'
 
 import './index.scss'
-import { NavLink } from 'react-router-dom'
-import { BASE_URL, CREATE_NOTES } from '@/utils/apiEndpoints'
+import { NavLink, useNavigate } from 'react-router-dom'
+import { postRequest } from '@/utils/apiRequests'
+import { BASE_URL, CREATE_NOTE } from '@/utils/apiEndpoints'
+import { NotesContext } from '@/context/context'
 
 const SideNavbar = () => {
+  const notesContext = useContext(NotesContext)
+  const navigate = useNavigate()
+
+  const [error, setError] = useState(null)
+
   const handleCreateNote = async() => {
-    const res = await postRequest()
+    const res = await postRequest(`${BASE_URL}${CREATE_NOTE}`)
 
+    if(res.error) {
+      setError(res.error)
 
+      return false
+    }
+
+    if(res._id) {
+      notesContext.notesDispatch({
+        type: 'createNoteSuccess',
+        payload: res
+      })
+
+      navigate(`/all-notes/${res._id}`, { state: { note: res }} )
+    }
   }
 
   return (

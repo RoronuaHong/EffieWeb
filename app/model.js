@@ -10,8 +10,8 @@ exports.createNote = async(payload) => {
   return res.insertedId
 }
 
-exports.fetchAllNotes = async() => {
-  const db = (await M_CONNECT).db(proccess.env.MONGO_DB_NAME)
+exports.fetchAllNotes = async(query) => {
+  const db = (await M_CONNECT).db(process.env.MONGO_DB_NAME)
 
   let collection = await db.collection(process.env.MONGO_DB_NOTES_COLLECTION)
 
