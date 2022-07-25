@@ -1,2 +1,2 @@
 # EffieWeb
-EffieWeb
+EverNoteClone Practice.
