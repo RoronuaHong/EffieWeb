@@ -23,33 +23,27 @@ exports.fetchAllNotes = async(query) => {
 }
 
 exports.updateNote = async(id, payload) => {
-  const db = (await M_CONNECT).db(proccess.env.MONGO_DB_NAME)
+  const db = (await M_CONNECT).db(process.env.MONGO_DB_NAME)
 
   let collection = await db.collection(process.env.MONGO_DB_NOTES_COLLECTION)
-
-  await collection.updateOne({
-    '_id': MONGO_DB.ObjectID(id)
-  }, {
-    $set: payload
-  })
+  
+  await collection.updateOne({ '_id': MONGO_DB.ObjectID(id) }, { $set: payload })
 
   return true
 }
 
 exports.deleteNote = async(id) => {
-  const db = (await M_CONNECT).db(proccess.env.MONGO_DB_NAME)
+  const db = (await M_CONNECT).db(process.env.MONGO_DB_NAME)
 
   let collection = await db.collection(process.env.MONGO_DB_NOTES_COLLECTION)
 
-  const res = await collection.deleteNote({
+  const res = await collection.deleteOne({
     '_id': MONGO_DB.ObjectID(id)
-  }, {
-
   })
 
-  if(!(res.result.n === 1)) {
-    throw new Error('Something went wrong')
-  }
+  // if(!(res.deletedCount === 1)) {
+  //   throw new Error('Something went wrong')
+  // }
 
-  return res.n
+  return true
 }

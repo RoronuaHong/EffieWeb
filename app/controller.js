@@ -1,7 +1,6 @@
 const { createNote, fetchAllNotes, updateNote, deleteNote } = require('./model')
 const { getTime } = require('./helper')
 
-// FIXME: 读出不对
 exports.createNewNote = async(req, res) => {
   // title, desc, archive, createAt, updatedAt
   try {
@@ -44,7 +43,6 @@ exports.getAllNotes = async(req, res) => {
 }
 
 exports.updateNoteById = async(req, res) => {
-  // req.body
   try {
     let currentTime = getTime()
     let query = {
@@ -54,7 +52,7 @@ exports.updateNoteById = async(req, res) => {
 
     await updateNote(req.params.id, query)
 
-    req.status(200).send(query)
+    res.status(200).send(query)
   } catch(ex) {
     res.status(400).send(ex.message)
   }
@@ -64,7 +62,7 @@ exports.deleteNote = async(req, res) => {
   try {
     await deleteNote(req.params.id)
 
-    res.status(200).send(id)
+    res.status(200).send(req.params.id)
   } catch(ex) {
     res.status(400).send(ex.message)
   }

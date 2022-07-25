@@ -28,7 +28,7 @@ const SideNavbar = () => {
         type: 'createNoteSuccess',
         payload: res
       })
-
+      
       navigate(`/all-notes/${res._id}`, { state: { note: res }} )
     }
   }

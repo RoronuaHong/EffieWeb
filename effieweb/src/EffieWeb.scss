@@ -9,3 +9,13 @@
   justify-items: center;
   height: 100vh;
 }
+
+.empty-state {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  height: 100%;
+  opacity: 0.3;
+  font-size: 14px;
+}
