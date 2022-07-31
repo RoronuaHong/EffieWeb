@@ -11,6 +11,7 @@ import {
   Routes,
   Route
 } from 'react-router-dom'
+
 import NoteReducer from '@/reducer/NoteReducer'
 import { NotesContext } from '@/context/context'
 
